@@ -36,3 +36,7 @@ st.title("the top 10 profited state")
 profited_state=df.groupby("State").sum()["Profit"].sort_values(ascending=False).head(10).reset_index()
 state_bar=px.bar(profited_state,x="State",y="Profit")
 st.plotly_chart(state_bar)
+
+st.title("Distribution of each category's Profit")
+fig = px.pie(df, values='Profit', names='Category', title='Distribution of each category\'s Profit')
+st.plotly_chart(fig)
